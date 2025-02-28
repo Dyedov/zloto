@@ -65,6 +65,7 @@ while True:
             producent_sztabki = input_name["value"][:8]
             cena_element = float(input_price["value"])
             print(f"Aktualna cena sztabki {producent_sztabki} {sztabka}g: {cena_element}")
+
             liczba_sztabek = int(kwotaInwestycji//cena_element)
             reszta = kwotaInwestycji - liczba_sztabek * cena_element
             reszta_zaokraglona = round(reszta,2)
