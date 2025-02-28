@@ -2,6 +2,25 @@ import requests
 # print(requests.__version__)
 from bs4 import BeautifulSoup
 
+mapowanie_sztabek = {
+    '1g':'1',
+    '1':'1',
+    '2g':'2',
+    '2':'2',
+    '5g':'5',
+    '5':'5',
+    '10g':'10',
+    '10':'10',
+    '20g':'20',
+    '20':'20',
+    '25g':'25',
+    '25':'25',
+    '50g':'50',
+    '50':'50',
+    '100g':'100',
+    '100':'100'
+}
+
 urls = {
     '1':'https://mennica.apart.pl/produkt/c-hafner-sztabka-1-g-24h/28',
     '2':'https://mennica.apart.pl/produkt/c-hafner-sztabka-2-g-24h/29',
@@ -14,13 +33,20 @@ urls = {
     '100':'https://mennica.apart.pl/produkt/c-hafner-sztabka-100-g-24h/35'
 }
 
-sztabka_gramy = ['1','2','5','10','20','25','1oz','50','100']
+sztabka_gramy = ['1','1g','2','2g','5','5g','10','10g','20','20g','25','25g','1oz','50','50g','100','100g']
 
 while True:
     try:
-        kwotaInwestycji = input('Jaką kwotę chcesz zainwestować. Podaj w PLN: ')
+        while True:
+            try:
+                kwotaInwestycji = int(input('Jaką kwotę chcesz zainwestować. Podaj w PLN: '))
+                break
+            except ValueError:
+                print('To nie jest liczba! Podaj poprawną kwotę.')
+
         print('Możesz zainwestować w sztabki złota: 1g, 2g, 5g, 10g, 20g, 25g, 1oz, 50g, 100g')
-        sztabka = input('Dokonaj wyboru: ')
+        sztabka = input('Podaj gramaturę: ').strip().lower()
+        sztabka = mapowanie_sztabek.get(sztabka, sztabka)
 
         if sztabka not in sztabka_gramy:
             raise ValueError('Błędna wartość! Wybierz jedną z dostępnych gramatur na liście.')
@@ -37,8 +63,13 @@ while True:
 
         if input_name and input_price:
             producent_sztabki = input_name["value"][:8]
-            cena_element = input_price["value"]
+            cena_element = float(input_price["value"])
             print(f"Aktualna cena sztabki {producent_sztabki} {sztabka}g: {cena_element}")
+            liczba_sztabek = int(kwotaInwestycji//cena_element)
+            reszta = kwotaInwestycji - liczba_sztabek * cena_element
+            reszta_zaokraglona = round(reszta,2)
+            print(f'Możesz zainwestować w {liczba_sztabek} sztabek po {sztabka}g.')
+            print(f'Reszta {reszta_zaokraglona} PLN')
 
         break
 
