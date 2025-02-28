@@ -70,7 +70,10 @@ while True:
             reszta = kwotaInwestycji - liczba_sztabek * cena_sztabki
             reszta_zaokraglona = round(reszta,2)
             print(f'Możesz zainwestować w {liczba_sztabek} sztabkę po {sztabka}g.')
-            print(f'Twoja inwestycja wyniesie {liczba_sztabek * cena_sztabki:.2f} PLN,'
+
+            inwestycja = liczba_sztabek * cena_sztabki
+            inwestycja_zaokraglona = round(inwestycja,2)
+            print(f'Twoja inwestycja wyniesie {inwestycja_zaokraglona} PLN,'
                   f'\nco pozwoli Ci kupić {liczba_sztabek} sztabek złota.')
             print(f'Reszta {reszta_zaokraglona} PLN')
 
