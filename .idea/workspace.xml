@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a43e173-016d-49c1-9379-4e740d6f555b" name="Changes" comment="Wersja 28_02_2025_03">
+    <list default="true" id="9a43e173-016d-49c1-9379-4e740d6f555b" name="Changes" comment="Wersja 28_02_2025_04">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zloto.py" beforeDir="false" afterPath="$PROJECT_DIR$/zloto.py" afterDir="false" />
     </list>
@@ -124,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740774775968</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Wersja 28_02_2025_04">
+      <option name="closed" value="true" />
+      <created>1740776325791</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740776325791</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -134,6 +142,7 @@
     <MESSAGE value="Wersja 28_02_2025_01" />
     <MESSAGE value="Wersja 28_02_2025_02" />
     <MESSAGE value="Wersja 28_02_2025_03" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wersja 28_02_2025_03" />
+    <MESSAGE value="Wersja 28_02_2025_04" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wersja 28_02_2025_04" />
   </component>
 </project>

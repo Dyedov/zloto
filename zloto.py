@@ -77,6 +77,13 @@ while True:
                   f'\nco pozwoli Ci kupić {liczba_sztabek} sztabek złota.')
             print(f'Reszta {reszta_zaokraglona} PLN')
 
+        inflacja = 5/100
+        inflacja_zloto = round(kwotaInwestycji * (1 + inflacja ) ** 10, 2)
+        inflacja_pln = round(kwotaInwestycji / (1 + inflacja ) ** 10, 2)
+
+        print(f'Za 10 lat Twoja inwestycja w złoto może być warta: \n{inflacja_zloto:,.2f} PLN'.replace(',',' '))
+        print(f'Przewidywana siła nabywcza Twoich pieniędzy za 10 lat wyniesie: \n{inflacja_pln:,.2f} PLN'.replace(',',' '))
+
         break
 
     except ValueError as e:
