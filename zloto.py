@@ -81,8 +81,21 @@ while True:
         inflacja_zloto = round(kwotaInwestycji * (1 + inflacja ) ** 10, 2)
         inflacja_pln = round(kwotaInwestycji / (1 + inflacja ) ** 10, 2)
 
-        print(f'Za 10 lat Twoja inwestycja w złoto może być warta: \n{inflacja_zloto:,.2f} PLN'.replace(',',' '))
-        print(f'Przewidywana siła nabywcza Twoich pieniędzy za 10 lat wyniesie: \n{inflacja_pln:,.2f} PLN'.replace(',',' '))
+        print(f'Za 10 lat Twoja inwestycja w złoto może być warta: '
+              f'\n{inflacja_zloto:,.2f} PLN'.replace(',',' '))
+        print(f'Przewidywana siła nabywcza Twoich pieniędzy za 10 lat wyniesie: '
+              f'\n{inflacja_pln:,.2f} PLN'.replace(',',' '))
+
+        response_NBP = requests.get('https://api.nbp.pl/api/cenyzlota/')
+
+        if response_NBP.status_code == 200:
+            dane = response_NBP.json()
+            cena_zlota = dane[0]['cena']
+            print(f'Aktualna cena złota wyliczona w NBP: {cena_zlota} PLN za gram')
+        else:
+            print(f'Błąd! Kod odpowiedzi: {response_NBP.status_code}')
+
+        # print(response_NBP.text)
 
         break
 
