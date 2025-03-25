@@ -99,36 +99,31 @@ while True:
         # for ceny_sztabek in urls:
         #     print('cena sztabki', ceny_sztabek, urls[ceny_sztabek], 'PLN')
 
-        ceny_sztabek = {}
-
-        for gramatura, url in urls.items():
-            if url:
-                ceny_sztabek[gramatura] = None
-
-        print(ceny_sztabek)
 
         def pobieranie_ceny(url):
-            response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
-            soup = BeautifulSoup(response.text, 'html.parser')
-            input_price = soup.find('input', {'type': 'hidden', 'name': 'price'})
+            headers = {"User-Agent": "Mozilla/5.0"}
+            response = requests.get(url, headers=headers)
 
-            if input_price:
-                return float(input_price['value'])
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                input_price = soup.find('input', {'type': 'hidden', 'name': 'price'})
+
+                if input_price:
+                    return float(input_price['value'])
+                else:
+                    return None
             else:
                 return None
 
         url_testowy = urls['5']
         print(pobieranie_ceny(url_testowy))
 
-        # for gramatura in urls:
-        #     ceny_sztabek[gramatura] = pobieranie_ceny(url)
+        ceny_sztabek = {}
+
+        for gramatura, url in urls.items():
+            ceny_sztabek[gramatura] = pobieranie_ceny(url)
 
         print(ceny_sztabek)
-
-
-
-
-
 
 
         break

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a43e173-016d-49c1-9379-4e740d6f555b" name="Changes" comment="Wersja 02_03_2025_02">
+    <list default="true" id="9a43e173-016d-49c1-9379-4e740d6f555b" name="Changes" comment="Wersja 25_03_2025_01">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zloto.py" beforeDir="false" afterPath="$PROJECT_DIR$/zloto.py" afterDir="false" />
     </list>
@@ -23,18 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Dyedov"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Dyedov&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Dyedov/zloto.git",
-    "accountId": "162040aa-3f28-489c-b612-566aab194807"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Dyedov/zloto.git&quot;,
+    &quot;accountId&quot;: &quot;162040aa-3f28-489c-b612-566aab194807&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/zloto.py" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -42,24 +42,24 @@
     <option name="autoscrollToSource" value="true" />
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2tS5Oy8UAoCbeHd6i6HtCG8bhSD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.PobieranieSztabkiZlota.executor": "Run",
-    "Python.zloto.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.PobieranieSztabkiZlota.executor&quot;: &quot;Run&quot;,
+    &quot;Python.zloto.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -148,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740945816806</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Wersja 25_03_2025_01">
+      <option name="closed" value="true" />
+      <created>1742907307846</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742907307846</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -161,6 +169,7 @@
     <MESSAGE value="Wersja 28_02_2025_04" />
     <MESSAGE value="Wersja 02_03_2025_01" />
     <MESSAGE value="Wersja 02_03_2025_02" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wersja 02_03_2025_02" />
+    <MESSAGE value="Wersja 25_03_2025_01" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wersja 25_03_2025_01" />
   </component>
 </project>
