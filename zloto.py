@@ -96,6 +96,40 @@ while True:
             print(f'Błąd! Kod odpowiedzi: {response_NBP.status_code}')
 
         # print(response_NBP.text)
+        # for ceny_sztabek in urls:
+        #     print('cena sztabki', ceny_sztabek, urls[ceny_sztabek], 'PLN')
+
+        ceny_sztabek = {}
+
+        for gramatura, url in urls.items():
+            if url:
+                ceny_sztabek[gramatura] = None
+
+        print(ceny_sztabek)
+
+        def pobieranie_ceny(url):
+            response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
+            soup = BeautifulSoup(response.text, 'html.parser')
+            input_price = soup.find('input', {'type': 'hidden', 'name': 'price'})
+
+            if input_price:
+                return float(input_price['value'])
+            else:
+                return None
+
+        url_testowy = urls['5']
+        print(pobieranie_ceny(url_testowy))
+
+        # for gramatura in urls:
+        #     ceny_sztabek[gramatura] = pobieranie_ceny(url)
+
+        print(ceny_sztabek)
+
+
+
+
+
+
 
         break
 
