@@ -96,9 +96,6 @@ while True:
             print(f'Błąd! Kod odpowiedzi: {response_NBP.status_code}')
 
         # print(response_NBP.text)
-        # for ceny_sztabek in urls:
-        #     print('cena sztabki', ceny_sztabek, urls[ceny_sztabek], 'PLN')
-
 
         def pobieranie_ceny(url):
             headers = {"User-Agent": "Mozilla/5.0"}
@@ -115,15 +112,46 @@ while True:
             else:
                 return None
 
-        url_testowy = urls['5']
-        print(pobieranie_ceny(url_testowy))
+        # url_testowy = urls['5']
+        # print(pobieranie_ceny(url_testowy))
 
         ceny_sztabek = {}
 
         for gramatura, url in urls.items():
             ceny_sztabek[gramatura] = pobieranie_ceny(url)
 
-        print(ceny_sztabek)
+        # print(ceny_sztabek)
+
+        gramatury = []
+        for g in ceny_sztabek:
+            if g != '1oz':
+                gramatury.append(int(g))
+            else:
+                gramatury.append(31.1)
+
+        gramatury = sorted(gramatury, reverse=True)
+
+        # print(gramatury)
+        # print(ceny_sztabek)
+
+        sztabki_do_kupienia = {}
+
+        for gramatura in gramatury:
+            klucz = '1oz' if gramatura == 31.1 else str(gramatura)
+            cena = ceny_sztabek[klucz]
+            if cena <= kwotaInwestycji:
+                liczba_sztuk = int(kwotaInwestycji // cena)
+                sztabki_do_kupienia[gramatura] = liczba_sztuk
+                kwotaInwestycji -= liczba_sztuk * cena
+
+        # print(sztabki_do_kupienia)
+
+        print('Zakupione sztabki:')
+        for gramatura, liczba_sztuk in sztabki_do_kupienia.items():
+            print(f'{liczba_sztuk} sztuk sztabki o gramaturze {gramatura}g')
+
+        print(f'Pozostała kwota: {kwotaInwestycji:,.2f} PLN')
+
 
 
         break
