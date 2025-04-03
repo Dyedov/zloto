@@ -129,29 +129,43 @@ while True:
             else:
                 gramatury.append(31.1)
 
-        gramatury = sorted(gramatury, reverse=True)
+        gramatury_max_value = sorted(gramatury, reverse=True)
+        gramatury_max_pieces = sorted([g for g in gramatury if g >= 5 and g != 31.1], reverse=True)
 
-        # print(gramatury)
-        # print(ceny_sztabek)
+        sztabki_max_value = {}
+        kwota_temp = kwotaInwestycji
 
-        sztabki_do_kupienia = {}
-
-        for gramatura in gramatury:
+        for gramatura in gramatury_max_value:
             klucz = '1oz' if gramatura == 31.1 else str(gramatura)
             cena = ceny_sztabek[klucz]
-            if cena <= kwotaInwestycji:
-                liczba_sztuk = int(kwotaInwestycji // cena)
-                sztabki_do_kupienia[gramatura] = liczba_sztuk
-                kwotaInwestycji -= liczba_sztuk * cena
+            if cena <= kwota_temp:
+                liczba_sztuk = int(kwota_temp // cena)
+                sztabki_max_value[gramatura] = liczba_sztuk
+                kwota_temp -= liczba_sztuk * cena
 
-        # print(sztabki_do_kupienia)
+        sztabki_max_pieces = {}
+        kwota_temp2 = kwotaInwestycji
 
-        print('Zakupione sztabki:')
-        for gramatura, liczba_sztuk in sztabki_do_kupienia.items():
+        for gramatura in gramatury_max_pieces:
+            klucz = '1oz' if gramatura == 31.1 else str(gramatura)
+            cena = ceny_sztabek[klucz]
+            if cena <= kwota_temp2:
+                liczba_sztuk = int(kwota_temp2 // cena)
+                sztabki_max_pieces[gramatura] = liczba_sztuk
+                kwota_temp2 -= liczba_sztuk * cena
+
+        print('\n Strategia "Największa wartość":')
+        for gramatura, liczba_sztuk in sztabki_max_value.items():
             print(f'{liczba_sztuk} sztuk sztabki o gramaturze {gramatura}g')
+        print(f'Pozostała kwota: {kwota_temp:,.2f} PLN')
 
-        print(f'Pozostała kwota: {kwotaInwestycji:,.2f} PLN')
+        print('\n Strategia "Najwięcej sztuk - zaczynamy od 5g":')
+        for gramatura, liczba_sztuk in sztabki_max_pieces.items():
+            print(f'{liczba_sztuk} sztuk sztabki o gramaturze {gramatura}g')
+        print(f'Pozostała kwota: {kwota_temp2:,.2f} PLN')
 
+        print("gramatury_max_value:", gramatury_max_value)
+        print("gramatury_max_pieces:", gramatury_max_pieces)
 
 
         break
