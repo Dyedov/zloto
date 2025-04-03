@@ -149,10 +149,15 @@ while True:
         for gramatura in gramatury_max_pieces:
             klucz = '1oz' if gramatura == 31.1 else str(gramatura)
             cena = ceny_sztabek[klucz]
+
+            print(f'DEBUG: gramatura {gramatura}, cena {cena}, kwota przed: {kwota_temp2}')
+
             if cena <= kwota_temp2:
                 liczba_sztuk = int(kwota_temp2 // cena)
                 sztabki_max_pieces[gramatura] = liczba_sztuk
                 kwota_temp2 -= liczba_sztuk * cena
+
+            print(f'DEBUG: Kupiono {liczba_sztuk}, sztuk, pozostała kłota: {kwota_temp2}')
 
         print('\n Strategia "Największa wartość":')
         for gramatura, liczba_sztuk in sztabki_max_value.items():
