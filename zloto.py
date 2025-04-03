@@ -130,7 +130,7 @@ while True:
                 gramatury.append(31.1)
 
         gramatury_max_value = sorted(gramatury, reverse=True)
-        gramatury_max_pieces = sorted([g for g in gramatury if g >= 5 and g != 31.1], reverse=True)
+        gramatury_max_pieces = sorted([g for g in gramatury if g >= 5 and g != 31.1],)
 
         sztabki_max_value = {}
         kwota_temp = kwotaInwestycji
@@ -150,14 +150,20 @@ while True:
             klucz = '1oz' if gramatura == 31.1 else str(gramatura)
             cena = ceny_sztabek[klucz]
 
-            print(f'DEBUG: gramatura {gramatura}, cena {cena}, kwota przed: {kwota_temp2}')
+            if cena <= kwota_temp2:
+                liczba_sztuk = int(kwota_temp2 // cena)
+                sztabki_max_pieces[gramatura] = liczba_sztuk
+                kwota_temp2 -= liczba_sztuk * cena
+
+        for gramatura in sorted([g for g in gramatury if g < 5], reverse=True):
+            klucz = '1oz' if gramatura == 31.1 else str(gramatura)
+            cena = ceny_sztabek[klucz]
 
             if cena <= kwota_temp2:
                 liczba_sztuk = int(kwota_temp2 // cena)
                 sztabki_max_pieces[gramatura] = liczba_sztuk
                 kwota_temp2 -= liczba_sztuk * cena
 
-            print(f'DEBUG: Kupiono {liczba_sztuk}, sztuk, pozostała kłota: {kwota_temp2}')
 
         print('\n Strategia "Największa wartość":')
         for gramatura, liczba_sztuk in sztabki_max_value.items():
@@ -169,8 +175,8 @@ while True:
             print(f'{liczba_sztuk} sztuk sztabki o gramaturze {gramatura}g')
         print(f'Pozostała kwota: {kwota_temp2:,.2f} PLN')
 
-        print("gramatury_max_value:", gramatury_max_value)
-        print("gramatury_max_pieces:", gramatury_max_pieces)
+        # print("gramatury_max_value:", gramatury_max_value)
+        # print("gramatury_max_pieces:", gramatury_max_pieces)
 
 
         break
