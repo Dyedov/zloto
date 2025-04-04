@@ -77,7 +77,28 @@ while True:
                   f'\nco pozwoli Ci kupić {liczba_sztabek} sztabek złota.')
             print(f'Reszta {reszta_zaokraglona} PLN')
 
-        inflacja = 5/100
+        def pobieranie_inflacje_CPI():
+            url = 'https://www.nbp.pl/statystyka-i-sprawozdawczosc/inflacja/'
+            headers = {'User-Agent': 'Mozilla/5.0'}
+            resource = requests.get(url, headers=headers)
+
+            if resource.status_code == 200:
+                soup = BeautifulSoup(resource.text, 'html.parser')
+
+                wiersze = soup.find_all('tr', class_='table-last-row')
+
+                for wiersz in wiersze:
+                    komorki = wiersz.find_all('td')
+                    if len(komorki) >= 2 and komorki[0].text.strip() == '02-2025':
+                        cpi_value = komorki[1].text.strip().replace(',', '.')
+                        return float(cpi_value) / 100
+
+            return 0.05
+
+        inflacja_cpi = pobieranie_inflacje_CPI()
+        print(f'Wartość inflacji CPI: {inflacja_cpi * 100}%')
+
+        inflacja = pobieranie_inflacje_CPI()
         inflacja_zloto = round(kwotaInwestycji * (1 + inflacja ) ** 10, 2)
         inflacja_pln = round(kwotaInwestycji / (1 + inflacja ) ** 10, 2)
 
