@@ -35,7 +35,12 @@ urls = {
 
 sztabka_gramy = ['1','1g','2','2g','5','5g','10','10g','20','20g','25','25g','1oz','50','50g','100','100g']
 
+print('\n' + '=' * 50)
+print("SYMULATOR INWESTYCJI W ZŁOTO".center(50))
+print('=' * 50 + '\n')
+
 while True:
+
     try:
         while True:
             try:
@@ -51,7 +56,10 @@ while True:
         if sztabka not in sztabka_gramy:
             raise ValueError('Błędna wartość! Wybierz jedną z dostępnych gramatur na liście.')
 
-        print(f'- Podsumowując - \nChcesz zainwestować: {kwotaInwestycji} PLN w sztabkę złota o wadze {sztabka}g')
+        print('\n' + '-' * 50)
+        print("🔎 PODSUMOWANIE INWESTYCJI")
+        print('-' * 50)
+        print(f'Chcesz zainwestować: {kwotaInwestycji} PLN w sztabkę złota o wadze {sztabka}g')
 
         url = urls[sztabka]
         headers = {"User-Agent": "Mozilla/5.0"}
@@ -94,6 +102,10 @@ while True:
                         return float(cpi_value) / 100
 
             return 0.05
+
+        print('\n' + '-' * 50)
+        print('📈 Prognozy na 10 lat')
+        print('-' * 50)
 
         inflacja_cpi = pobieranie_inflacje_CPI()
         print(f'Wartość inflacji CPI: {inflacja_cpi * 100}%')
@@ -185,13 +197,16 @@ while True:
                 sztabki_max_pieces[gramatura] = liczba_sztuk
                 kwota_temp2 -= liczba_sztuk * cena
 
-
-        print('\n Strategia "Największa wartość":')
+        print('\n' + '-' * 50)
+        print('💡 Strategia: "Największa wartość"')
+        print('-' * 50)
         for gramatura, liczba_sztuk in sztabki_max_value.items():
             print(f'{liczba_sztuk} sztuk sztabki o gramaturze {gramatura}g')
         print(f'Pozostała kwota: {kwota_temp:,.2f} PLN')
 
-        print('\n Strategia "Najwięcej sztuk - zaczynamy od 5g":')
+        print('\n' + '-' * 50)
+        print('💡 Strategia: "Najwięcej sztuk - zaczynamy od 5g"')
+        print('-' * 50)
         for gramatura, liczba_sztuk in sztabki_max_pieces.items():
             print(f'{liczba_sztuk} sztuk sztabki o gramaturze {gramatura}g')
         print(f'Pozostała kwota: {kwota_temp2:,.2f} PLN')
@@ -199,8 +214,19 @@ while True:
         # print("gramatury_max_value:", gramatury_max_value)
         # print("gramatury_max_pieces:", gramatury_max_pieces)
 
+        # print('\n' + '=' * 50)
+        # print("DZIĘKĘ ZA SKORZYSTANIE Z PROGRAMU".center(50))
+        # print('=' * 50 + '\n')
+
+        print('\nDziękuję za skorzystanie z symulatora inwestycji w złoto!')
+        input('Naciśnij Enter, aby zakończyć...')
 
         break
 
     except ValueError as e:
         print(e)
+
+
+
+
+
